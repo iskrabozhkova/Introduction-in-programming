@@ -1,0 +1,39 @@
+// Функцията да намира броя на тройките числа, всяко от които е елемент на 1вия, 2рия и 3тия масив, такива че едното е сума на другите 2.
+// 
+
+#include <iostream>
+
+bool checkCondition(int a, int b, int c) {
+	if ((a == b + c )|| (b == a + c) || (c == a + b)) {
+		return true;
+	}
+	else {
+		return false;
+	}
+}
+
+int findCount(int arr1[], int size1, int arr2[], int size2, int arr3[], int size3) {
+	int count = 0;
+	for (int i = 0; i < size1; i++) {
+		for (int j = 0; j < size2; j++) {
+			for (int k = 0; k < size3; k++) {
+				if (checkCondition(arr1[i], arr2[j], arr3[k])) {
+					count++;
+				}
+			}
+		}
+	}
+	return count;
+}
+
+
+int main() {
+	int arr1[] = { 1, 5, 3 };
+	int arr2[] = { 2,4 };
+	int arr3[] = { 6,3,0 };
+
+	int result = findCount(arr1, 3, arr2, 2, arr3, 3); 
+	std::cout << result; // result is 3
+	
+	return 0;
+}
