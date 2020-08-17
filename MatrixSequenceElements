@@ -1,0 +1,51 @@
+#include <iostream>
+
+int arr[20][20];
+
+void initMatrix(int n) {
+	for (int i = 0; i < n; i++) {
+		for (int j = 0; j < n; j++) {
+			std::cin >> arr[i][j];
+		}
+	}
+}
+
+void printMatrix(int n) {
+	for (int i = 0; i < n; i++) {
+		for (int j = 0; j < n; j++) {
+			std::cout << arr[i][j] << " ";
+		}
+		std::cout << std::endl;
+	}
+}
+
+int countRows(int n) {
+	int count = 0;
+	for (int rows = 0; rows < n; rows++) {
+		for (int cols = 0; cols < n-2; cols++) {
+			int first = arr[rows][cols];
+			int second = arr[rows][cols + 1];
+			int third = arr[rows][cols + 2];
+
+			if ((first == second - 1 && second == third - 1 && first > 0) ||
+				(first == second + 1 && second == third + 1 && third < 0)) {
+				count++;
+				break;
+			}
+
+		}
+	}
+	return count;
+}
+
+
+int main() {
+	int n;
+	std::cin >> n;
+	initMatrix(n);
+	printMatrix(n);
+	std::cout << std::endl;
+	int res = countRows(n);
+	std::cout << res;
+	return 0;
+}
