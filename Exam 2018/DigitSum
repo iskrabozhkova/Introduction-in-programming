@@ -1,0 +1,29 @@
+#include <iostream>
+
+int sumOfDigits(int n) {
+	int sum = 0;
+	do {
+		sum = sum + n % 10;
+		n = n / 10;
+
+	} while (n != 0);
+
+	return sum;
+}
+
+int main() {
+	int n,k ;
+	std::cin >> k >> n;
+
+	int currentNum = 1;
+	do {
+		if (sumOfDigits(currentNum) == k) {
+			std::cout << currentNum << " ";
+			n--;
+		}
+			currentNum++;
+		
+	} while (n > 0);
+
+	return 0;
+}
