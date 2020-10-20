@@ -1,0 +1,22 @@
+#include <iostream>
+
+int main() {
+	int number;
+	int firstMax = 0;
+	int secondMax = 0;
+	do {
+		std::cin >> number;
+		if (number > firstMax) {
+			secondMax = firstMax;
+			firstMax = number;
+		}
+		else if (number > secondMax) {
+			secondMax = number;
+		}
+		
+	} while (number > 0);
+
+	std::cout << secondMax;
+
+	return 0;
+}
