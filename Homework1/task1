@@ -1,0 +1,34 @@
+#include <iostream>
+
+int main() {
+	int years, price, m;
+	int thirty = 30;
+	std::cin >> years >> price >> m;
+
+	int sum = 0;
+
+	for (int i = 1; i <= years; i++) {
+		if (i == 2) {
+			sum += 30;
+			sum -= 5;
+		}
+		if (i % 2 != 0) {
+			sum += m;
+		}
+		else if(i % 2 == 0 && i != 2){
+			thirty += 30;
+			sum = sum + thirty;
+			sum -= 5;
+		}
+	}
+	if (sum >= price) {
+		std::cout << "yes" << std::endl;
+		std::cout << sum - price;
+	}
+	else {
+		std::cout << "no" << std::endl;
+		std::cout << price - sum;
+	}
+		
+	return 0;
+}
