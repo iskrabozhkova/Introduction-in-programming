@@ -1,0 +1,28 @@
+using namespace std;
+#include <iostream>
+
+
+int main()
+{
+	int x, y,z ;
+	std::cin >> x >> y >> z;
+
+	if (x > y) {
+		int temp = x;
+		x = y;
+		y = temp;
+	}
+	if (x > z) {
+		int temp = x;
+		x = z;
+		z = temp;
+	}
+	if (y > z) {
+		int temp = y;
+		y = z;
+		z = temp;
+	}
+
+	std::cout << x << y << z << y << x;
+	return 0;
+}
