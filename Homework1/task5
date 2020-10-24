@@ -24,8 +24,8 @@ int main() {
 		}
 	}
 	if (num > 1) {
-		int temp = num;
-		if (temp == 2 || temp == 5) {
+		int help = num;
+		if (help == 2 || help == 5) {
 			isTwoOrFive = true;
 		}
 		else {
