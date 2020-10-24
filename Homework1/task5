@@ -1,0 +1,48 @@
+int main() {
+	double num;
+	std::cin >> num;
+	double rem = 1 / num;
+	int counter = 0;
+	int intRem = (int)rem;
+	double temp = rem;
+	
+	int z = 2;
+	bool isTwoOrFive = true;
+	while (z * z <= (int)num) {
+		if ((int)num % z == 0) {
+			if (z == 2 || z == 5) {
+				isTwoOrFive = true;
+			}
+			else {
+				isTwoOrFive = false;
+			}
+			num /= z;
+		
+		}
+		else {
+			z++;
+		}
+	}
+	if (num > 1) {
+		int temp = num;
+		if (temp == 2 || temp == 5) {
+			isTwoOrFive = true;
+		}
+		else {
+			isTwoOrFive = false;
+		}
+	}
+	
+	if (isTwoOrFive) {
+		while (temp != (int)temp) {
+					temp *= 10;
+					counter++;
+				}
+			std::cout << counter;
+	}
+	else {
+		std::cout << "NO";
+	}
+
+	return 0;
+}
