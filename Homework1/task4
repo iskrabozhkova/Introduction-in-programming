@@ -1,0 +1,36 @@
+#include <iostream> 
+using namespace std;
+
+// pri 3,7,11 - ne raboti
+
+int main() {
+	int num;
+	std::cin >> num;
+
+	int sum = 3;
+	int temp = INT_MAX;
+
+	int copyM = 0;
+	int copyP = 0;
+	int copyQ = 0;
+	for (int m = 1; m < num; m++) {
+		for (int p = 1; p < num; p++) {
+			for (int q = 1; q < num; q++) {
+				if (m * p * q == num) {
+					sum = m + p + q;
+					if (temp > sum) {
+						temp = sum;
+						copyM = m;
+						copyP = p;
+						copyQ = q;
+					}
+				}
+				
+			}
+		}
+	}
+
+	std::cout << copyM << " "<< copyP << " "<< copyQ;
+	
+	return 0;
+}
