@@ -1,28 +1,85 @@
 using namespace std;
 #include <iostream>
 
-
-int main()
-{
+int main(){
 	int x, y,z ;
-	std::cin >> x >> y >> z;
+	cin >> x >> y >> z;
 
-	if (x > y) {
-		int temp = x;
-		x = y;
-		y = temp;
-	}
-	if (x > z) {
-		int temp = x;
-		x = z;
-		z = temp;
-	}
-	if (y > z) {
-		int temp = y;
-		y = z;
-		z = temp;
+	while (1) {
+		if (cin.fail())
+		{
+			cin.clear();
+			cin.ignore(numeric_limits<streamsize>::max(), '\n');
+
+			cin >> x >> y >> z;
+		}
+		if (!cin.fail())
+			break;
 	}
 
-	std::cout << x << y << z << y << x;
+	if (x != y && y != z && x != z) {
+		//Ako pone ednoto e nula
+		if (x == 0 || y == 0 || z == 0) {
+			if (x == 0) {
+				if (z > y) {
+					cout << y << x << z << x << y;
+				}
+				else {
+					cout << z << x << y << x << z;
+				}
+			}
+			else if (y == 0) {
+				if (z > x) {
+					cout << x << y << z << y << x;
+				}
+				else {
+					cout << z << y << x << y << z;
+				}
+			}
+			else if (z == 0) {
+				if (x > y) {
+					cout << y << z << x << z << y;
+				}
+				else {
+					cout << x << z << y << z << x;
+				}
+			}
+		}
+		else {
+			if (x > y) {
+				int temp = x;
+				x = y;
+				y = temp;
+			}
+			if (x > z) {
+				int temp = x;
+				x = z;
+				z = temp;
+			}
+			if (y > z) {
+				int temp = y;
+				y = z;
+				z = temp;
+			}
+			cout << x << y << z << y << x;
+		}
+	}
+	//Ako imame 2 povtarqshti se chisla
+	if (x == y && x != z && y != z) {
+		cout << x << z << y;
+	}
+	if (x == z && x != y && y != z) {
+		cout << x << y << z;
+	}
+	if (y == z && x != y && x != z) {
+		cout << y << x << z;
+	}
+	//Ako 3te chisla sa ednakvi
+	if (x == y && x == z && x == y) {
+		cout << x << y << z;
+	}
+	
+	
+
 	return 0;
 }
