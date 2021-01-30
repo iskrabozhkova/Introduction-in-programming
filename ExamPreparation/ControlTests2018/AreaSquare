@@ -1,0 +1,43 @@
+double findArea(double arr[], int n) {
+	double minX = 1000;
+	double maxX = -1000;
+	double minY = 1000;
+	double maxY = -1000;
+	for (int i = 0; i < n; i += 2) {
+		if (arr[i] < minX) {
+			minX = arr[i];
+		}
+		if (arr[i] > maxX) {
+			maxX = arr[i];
+		}
+	}
+	for (int i = 0; i < n; i += 2) {
+		if (arr[i] < minY) {
+			minY = arr[i];
+		}
+		if (arr[i] > maxY) {
+			maxY = arr[i];
+		}
+	}
+
+	double diffX = maxX - minX;
+	double diffY = maxY - minY;
+
+	int side = diffX;
+	if (diffY < side) {
+		side = diffY;
+	}
+	return side * side;
+}
+
+int main() {
+	int n;
+	std::cin >> n;
+	double arr[100];
+	for (int i = 0; i < 2 * n; i++) {
+		std::cin >> arr[i];
+	}
+	std::cout << findArea(arr, 2 * n);
+
+	return 0;
+}
