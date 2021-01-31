@@ -1,0 +1,40 @@
+#include <iostream>
+
+
+int* mergeArrays(int first[], int second[], int n, int m){
+
+	int* result = new int[n + m];
+	int i = 0, j = 0, k = 0;
+
+	while (i < n && j < m){
+		if (first[i] < second[j])
+			result[k++] = first[i++];
+		else
+			result[k++] = second[j++];
+	}
+
+	while (i < n) {
+		result[k++] = first[i++];
+	}
+	while (j < m) {
+		result[k++] = second[j++];
+	}
+
+	return result;
+}
+
+int main() {
+	int arr1[5] = { 3, 5, 7, 9, 11 };
+	int arr2[5] = { 2, 4, 6, 8, 10 };
+
+	int* arr3 = mergeArrays(arr1,arr2, 5, 5);
+
+	for (int i = 0; i < 10; i++)
+	{
+		std::cout << arr3[i] << " ";
+	}
+
+	delete[] arr3;
+
+	return 0;
+}
