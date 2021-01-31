@@ -1,0 +1,24 @@
+Да се напише функция на С++, със сигнатура void Revert(char []), която преобразува
+подадения като параметър символен низ, като замества всички малки букви от
+латинската азбука с главни и обратно. Да не се използва вградената библиотека
+string
+
+void revert(char arr[]) {
+	int len = strlen(arr);
+
+	for (int i = 0; i < len; i++) {
+		bool isCapital = arr[i] >= 'A' && arr[i] <= 'Z';
+		bool isLower = arr[i] >= 'a' && arr[i] <= 'z';
+		arr[i] += 32 * isCapital + isLower * (-32);
+	}
+}
+int main() {
+	char str[20];
+	std::cin >> str;
+	revert(str);
+	int len = strlen(str);
+	for (int i = 0; i < len; i++) {
+		std::cout << str[i];
+	}
+	return 0;
+}
