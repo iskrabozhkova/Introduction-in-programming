@@ -3,6 +3,13 @@
 латинската азбука с главни и обратно. Да не се използва вградената библиотека
 string
 
+int strlen(char arr[]) {
+	int len = 0;
+	while (arr[len] != '\0') {
+		len++;
+	}
+	return len;
+}
 void revert(char arr[]) {
 	int len = strlen(arr);
 
