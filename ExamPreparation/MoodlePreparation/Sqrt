@@ -1,0 +1,27 @@
+double myAbs(double a) {
+	if (a > 0) {
+		return a;
+	}
+	else {
+		return -a;
+	}
+}
+double sqrtHelp(double a, double eps, double y) {
+	if (a < 0) {
+		return -1;
+	}
+	if (a == 0) {
+		return 0;
+	}
+	double z = (2 * y + a) / (2 * y);
+	if (myAbs(z - y) < eps) return z;
+	return sqrtHelp(a, eps, z);
+}
+
+double sqrt_a(double a, double eps) {
+	return sqrtHelp(a, eps, a);
+}
+int main() {
+	std::cout << sqrt_a(25, 0.11);
+	return 0;
+}
