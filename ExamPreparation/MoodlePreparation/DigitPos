@@ -1,0 +1,30 @@
+#include <iostream>
+
+long numLen(long num) {
+	long len = 0;
+	while (num != 0) {
+		num /= 10;
+		len++;
+	}
+	return len;
+}
+int digitPos(long num, int k) {
+	long len = numLen(num);
+	long* newArr = new long[len];
+	if (k > len || k <= 0) {
+		return -1;
+	}
+	
+	for (long i = len; i >= 0; i--) {
+		newArr[i] = num % 10;
+		num /= 10;
+	}
+	return newArr[k];
+	delete[] newArr;
+}
+
+int main() {
+	std::cout << digitPos(123456545, 0);
+
+	return 0;
+}
