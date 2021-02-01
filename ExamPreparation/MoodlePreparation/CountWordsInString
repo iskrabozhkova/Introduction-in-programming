@@ -1,0 +1,29 @@
+long countWords(char* text) {
+	for (int i = 0; text[i] != '\0'; i++) {
+		int count = 0;
+		bool inWord = false;
+		for (int i = 0; text[i] != '\0'; i++) {
+			if (text[i] != '\t' && text[i] != ' ') 
+			{
+				if (!inWord) {
+					count++;
+					inWord = true;
+				}
+			}
+			else 
+			{
+				inWord = false;
+			}
+		}
+		return count;
+	}
+	return -1;
+}
+
+int main() {
+	char text[] = "I am string";
+	std::cout << countWords(text);
+	return 0;
+
+	return 0;
+}
