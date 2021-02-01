@@ -1,0 +1,40 @@
+int strlen(char* str) {
+	int len = 0;
+	while (str[len] != '\0') {
+		len++;
+	}
+	return len;
+}
+
+bool doExist(char* symbols, char* word){
+	int lenSymbols = strlen(symbols);
+	int lenWord = strlen(word);
+	int i = 0, j = 0;
+
+	while (i < lenSymbols && j < lenWord) {
+		if (symbols[i] == word[j]) {
+
+			i++;
+			j++;
+
+			if (j == lenWord) {
+				return true;
+			}
+		}
+		else {
+			i = i - j + 1;
+			j = 0;
+		}
+	}
+	return false;
+}
+
+int main() {
+	char* f = new char[20];
+	char* s = new char[20];
+	std::cin >> f >> s;
+
+	std::cout << doExist(f, s);
+
+	return 0;
+}
