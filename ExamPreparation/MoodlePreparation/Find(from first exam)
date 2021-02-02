@@ -1,55 +1,42 @@
 #include <iostream>
 
-int Find(long N, int n)
-{
-	if (n <= 0 || n >= 9)
-	{
-		return -1;
-	}
-	if (N < 0)
-	{
-		return -1;
-	}
-	long temp = N;
-	int count = 0;
-	while (temp != 0)
-	{
-		count++;
+long countDigits(long num) {
+	long temp = num;
+	long count = 0;
+	while (temp != 0) {
 		temp /= 10;
+		count++;
 	}
-	if (n > count)
-	{
+	return count;
+}
+int Find(long N, long n) {
+	if (n <= 0 || n >= 9) {
+		return -1;
+	}
+	if (N < 0) {
+		return -1;
+	}
+	long count = countDigits(N);
+
+	if (n > count) {
 		return -1;
 	}
 	int* arr = new int[count];
-	int* arr2 = new int[count];
-	temp = N;
-	count = 0;
-	while (temp != 0)
-	{
-		arr[count] = temp % 10;
-		temp /= 10;
-		count++;
-	}
-	for (int i = 0; i < count; i++)
-	{
-		arr2[i] = arr[count - 1 - i];
+	
+	for (int i = count; i >= 0; i--) {
+		arr[i] = N % 10;
+		N /= 10;
 	}
 	int max = 0;
-	for (int i = 0; i <= count - n; i++)
-	{
+	for (int i = 0; i <= count - n; i++) {
 		int a = 0;
-		for (int j = i; j < n + i; j++)
-		{
-			a = a * 10 + arr2[j];
-		}
-		if (max < a)
-		{
+		for (int j = i; j < n + i; j++) {
+			a = a * 10 + arr[j];
+		}	
+		if (max < a) {
 			max = a;
 		}
-
 	}
-
 	return max;
 }
 
