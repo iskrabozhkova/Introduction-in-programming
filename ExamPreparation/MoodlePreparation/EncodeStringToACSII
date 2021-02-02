@@ -1,0 +1,45 @@
+--main idea but not true
+
+#include <iostream>
+int strlen(char arr[]) {
+	int len = 0;
+	while (arr[len] != '\0') {
+		len++;
+	}
+	return len;
+}
+int digLen(int num) {
+	int len = 0;
+	while (num != 0) {
+		num /= 10;
+		len++;
+	}
+	return len;
+}
+
+char* encode(char str[]) {
+
+	int len = strlen(str);
+	int* result = new int[len];
+	char* arr = new char[len];
+
+	for (int i = 0; i < len; i++) {
+		result[i] = (int)str[i];
+	}
+
+	for (int i = 0; i < len; i++) {
+		int lenI = digLen(result[i]);
+		for (int j = lenI; j >= 0; j--) {
+			arr[j] = result[i] % 10;
+			result[i] /= 10;
+		}
+		arr[i] = '_';
+	}
+
+}
+
+int main() {
+	char str[20];
+	
+	return 0;
+}
