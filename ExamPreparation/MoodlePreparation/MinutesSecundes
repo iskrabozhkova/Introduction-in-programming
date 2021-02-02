@@ -1,0 +1,36 @@
+	// ne e vqrna
+  // ne se pravi taka
+  
+  #include <iostream>
+
+int charToInt(char input){
+	return input - '0';
+}
+
+int checkTime(char str[]) {
+	int fhour = charToInt(str[0]);
+	int shour = charToInt(str[1]);
+	int tochki = charToInt(str[2]);
+	int fminutes = charToInt(str[3]);
+	int sminutes = charToInt(str[4]);
+	int stochki = charToInt(str[5]);
+	int fseconds = charToInt(str[6]);
+	int sseconds = charToInt(str[7]);
+
+	if((fhour == 0 && (shour <= 0 || shour <= 9)) || (fhour == 1 && (shour <= 0 || shour <= 9)) || (fhour == 2 && (shour <= 0 || shour <= 4))
+		&& (fminutes == 0 && sminutes >= 0 && sminutes <= 9) || ((fminutes >= 0 || fminutes < 6) && (sminutes >= 0 || sminutes <= 9))&&
+		(fseconds == 0 && sseconds >= 0 && sseconds <= 9) || ((fseconds >= 0 || fseconds < 6) && (sseconds >= 0 || sseconds <= 9)) &&
+		(tochki == ':') && (stochki == ':')) {
+		return 1;
+	}
+		return -1;
+}
+
+int main() {
+	char str[20];
+	std::cin >> str;
+
+	std::cout << checkTime(str);
+	
+	return 0;
+}
