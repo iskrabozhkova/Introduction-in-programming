@@ -1,0 +1,36 @@
+#include <iostream>
+
+int findLen(long num) {
+	int len = 0;
+	while (num != 0) {
+		num /= 10;
+		len++;
+	}
+	return len;
+}
+int findDigit(long num, int k) {
+	int numLen = findLen(num);
+
+	int* arr = new int[numLen];
+
+	for (int i = numLen; i >= 0; i--) {
+		arr[i] = num % 10;
+		num /= 10;
+	}
+	return arr[k];
+}
+int NumCalc(long num, int k, int l) {
+	int numLen = findLen(num);
+	if (k > numLen || l > numLen) {
+		return -1;
+	}
+	int kDig = findDigit(num, k);
+	int lDig = findDigit(num, l);
+
+	return kDig + lDig;
+}
+int main() {
+	std::cout << NumCalc(123456, 2, 3);
+
+	return 0;
+}
