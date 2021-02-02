@@ -1,0 +1,86 @@
+#include <iostream>
+
+int strlen(char str[]) {
+	int len = 0;
+	while (str[len] != '\0') {
+		len++;
+	}
+	return len;
+}
+
+int GetWord(char str[]){
+	int len = strlen(str);
+	if (len == 0)
+	{
+		return -1;
+	}
+
+	int validationCount = 0;
+	for (int i = 0; i < len; i++)
+	{
+		if (str[i] == ' ' || str[i] == '\t')
+		{
+			validationCount++;
+		}
+	}
+	if (validationCount == len)
+	{
+		return -1;
+	}
+
+	int max = 0;
+	int count = 0;
+	for (int i = 0; i < len; i++)
+	{
+		if (str[i] != ' ' && str[i] != '\t')
+		{
+			count++;
+		}
+		else
+		{
+			if (count > max)
+			{
+				max = count;
+			}
+			count = 0;
+		}
+
+		if (i == len - 1)
+		{
+			if (count > max)
+			{
+				max = count;
+			}
+		}
+	}
+	count = 0;
+	int index = 0;
+	for (int i = 0; i < len; i++)
+	{
+		if (count == 0)
+		{
+			index = i;
+		}
+		if (str[i] != ' ' && str[i] != '\t')
+		{
+			count++;
+		}
+		else
+		{
+			if (count == max)
+			{
+				break;
+			}
+			count = 0;
+		}
+	}
+
+
+	return index;
+}
+int main() {
+	char str[20] = { "A am string" };
+	std::cout << GetWord(str);
+
+	return 0;
+}
