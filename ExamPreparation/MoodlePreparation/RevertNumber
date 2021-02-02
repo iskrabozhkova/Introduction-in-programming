@@ -1,0 +1,22 @@
+#include <iostream>
+
+void revert(long& num) {
+	long result = 0;
+	long temp = num;
+
+	while (temp != 0) {
+		int lastDigit = temp % 10;
+		result = (result * 10) + lastDigit;
+		temp /= 10;
+	}
+	num = result;
+}
+int main() {
+	long num;
+	std::cin >> num;
+	revert(num);
+	std::cout << num;
+
+
+	return 0;
+}
