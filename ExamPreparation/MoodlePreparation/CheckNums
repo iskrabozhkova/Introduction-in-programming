@@ -1,0 +1,39 @@
+//not sure 
+#include <iostream>
+
+int digLen(long num) {
+	int count = 0;
+	while (num != 0) {
+		num /= 10;
+		count++;
+	}
+	return count;
+}
+int* checkNum(long num1, long num2) {
+	int len1 = digLen(num1);
+	int len2 = digLen(num2);
+	
+	int* arr1 = new int[len1];
+	int* arr2 = new int[len2];
+
+	for (int i = len1; i >= 0; i--) {
+		arr1[i] = num1 % 10;
+		num1 /= 10;
+	}
+
+	for (int i = len2; i >= 0; i--) {
+		arr2[i] = num2 % 10;
+		num2 /= 10;
+	}
+
+	int* result = new int[len1 + len2];
+	int k = 0;
+	for (int i = 1; i <= len1; i++) {
+		for (int j = 1; j <= len2; j++) {
+			if (arr1[i] == arr2[j]) {
+				result[k++] = arr1[i];
+			}
+		}
+	}
+	return result;
+}
