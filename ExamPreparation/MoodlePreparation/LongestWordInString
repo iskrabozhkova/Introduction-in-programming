@@ -1,0 +1,41 @@
+	// ne e pravilna
+  
+  #include <iostream>
+
+int strlen(char str[]) {
+	int len = 0;
+	while (str[len] != '\0') {
+		len++;
+	}
+	return len;
+}
+char* checkStr(char str[]) {
+	int len = strlen(str);
+	char* result = new char[len];
+
+	int count[256]; // <-- assuming char is 8 bytes
+	for (int i = 0; i != 256; ++i){
+		count[i] = 0; // <-- set all counts to be zero
+	}
+	for (int i = 0; str[i] != '\0'; i++){
+		count[str[i]] = count[str[i]] + 1;
+	}
+	int k = 0;
+	for (int i = 0; i < 256; i++) {
+		if (count[i] > 1) {
+			result[k++] = i;
+		}
+	}
+
+	return result;
+
+}
+
+int main() {
+	char str[] = { "looopkalo" };
+	char* res = checkStr(str);
+	std::cout << res;
+	delete[] res;
+	
+	return 0;
+}
