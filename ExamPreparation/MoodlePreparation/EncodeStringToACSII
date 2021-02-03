@@ -1,6 +1,5 @@
---main idea but not true
-
 #include <iostream>
+
 int strlen(char arr[]) {
 	int len = 0;
 	while (arr[len] != '\0') {
@@ -8,38 +7,50 @@ int strlen(char arr[]) {
 	}
 	return len;
 }
-int digLen(int num) {
-	int len = 0;
-	while (num != 0) {
-		num /= 10;
-		len++;
-	}
-	return len;
-}
-
 char* encode(char str[]) {
-
 	int len = strlen(str);
-	int* result = new int[len];
-	char* arr = new char[len];
 
-	for (int i = 0; i < len; i++) {
-		result[i] = (int)str[i];
-	}
+	if (len != 0) {
+		char* result = new char[len * 4 + 1];
+		int k = 0;
 
-	for (int i = 0; i < len; i++) {
-		int lenI = digLen(result[i]);
-		for (int j = lenI; j >= 0; j--) {
-			arr[j] = result[i] % 10;
-			result[i] /= 10;
+		for (int i = 0; i < len; i++) {
+			int current = int(str[i]);
+
+			while (current >= 0) {
+				if (current >= 0 && current < 10) {
+					result[k] = current + '0';
+					k++;
+					break;
+				}
+				else if (current >= 10 && current <= 100) {
+					result[k] = (current / 10) + '0';
+					current = current % 10;
+				}
+				else if (current >= 100 && current < 110) {
+					result[k] = '1';
+					result[k + 1] = '0';
+					current = current % 10;
+					k++;
+				}
+				else if (current >= 110 && current <= 127) {
+					result[k] = '1';
+					current = current % 10;
+				}
+				k++;
+			}
+			result[k] = '_';
+			k++;
 		}
-		arr[i] = '_';
+		result[k - 1] = '\0';
+		return result;
 	}
-
 }
-
 int main() {
-	char str[20];
-	
+	char str[] = { "aBc" };
+	char* res = encode(str);
+	std::cout << res;
+
+
 	return 0;
 }
