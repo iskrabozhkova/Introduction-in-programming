@@ -1,6 +1,5 @@
-	// ne e pravilna
-  
-  #include <iostream>
+
+#include <iostream>
 
 int strlen(char str[]) {
 	int len = 0;
@@ -14,19 +13,21 @@ char* checkStr(char str[]) {
 	char* result = new char[len];
 
 	int count[256]; // <-- assuming char is 8 bytes
-	for (int i = 0; i != 256; ++i){
+	for (int i = 0; i != 256; ++i) {
 		count[i] = 0; // <-- set all counts to be zero
 	}
-	for (int i = 0; str[i] != '\0'; i++){
+	for (int i = 0; str[i] != '\0'; i++) {
 		count[str[i]] = count[str[i]] + 1;
 	}
 	int k = 0;
+	int counter = 0;
 	for (int i = 0; i < 256; i++) {
 		if (count[i] > 1) {
 			result[k++] = i;
+			counter++;
 		}
 	}
-
+	result[counter] = '\0';
 	return result;
 
 }
@@ -36,6 +37,6 @@ int main() {
 	char* res = checkStr(str);
 	std::cout << res;
 	delete[] res;
-	
+
 	return 0;
 }
