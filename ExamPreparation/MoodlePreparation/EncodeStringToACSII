@@ -16,18 +16,18 @@ char* encode(char str[]) {
 
 		for (int i = 0; i < len; i++) {
 			int current = int(str[i]);
-
-			while (current >= 0) {
-				if (current >= 0 && current < 10) {
+			while (current != 0) {
+				if (current >= 0 && current <= 9) {
 					result[k] = current + '0';
 					k++;
 					break;
 				}
-				else if (current >= 10 && current <= 100) {
+				else if (current >= 10 && current <= 99) {
 					result[k] = (current / 10) + '0';
 					current = current % 10;
+					k++;
 				}
-				else if (current >= 100 && current < 110) {
+				else if (current >= 100 && current <= 109) {
 					result[k] = '1';
 					result[k + 1] = '0';
 					current = current % 10;
@@ -35,9 +35,9 @@ char* encode(char str[]) {
 				}
 				else if (current >= 110 && current <= 127) {
 					result[k] = '1';
-					current = current % 10;
+					current = current % 100;
+					k++;
 				}
-				k++;
 			}
 			result[k] = '_';
 			k++;
@@ -46,6 +46,7 @@ char* encode(char str[]) {
 		return result;
 	}
 }
+
 int main() {
 	char str[] = { "aBc" };
 	char* res = encode(str);
