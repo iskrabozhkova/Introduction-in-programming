@@ -1,0 +1,5 @@
+﻿  main.cpp
+C:\Github\Introduction-in-programming\MatrixTasks\Loops\main.cpp(65,24): warning C4018: '<': signed/unsigned mismatch
+C:\Github\Introduction-in-programming\MatrixTasks\Loops\main.cpp(67,26): warning C4018: '<': signed/unsigned mismatch
+C:\Github\Introduction-in-programming\MatrixTasks\Loops\main.cpp(118,12): warning C4305: 'return': truncation from 'int' to 'bool'
+  Loops.vcxproj -> C:\Github\Introduction-in-programming\MatrixTasks\Debug\Loops.exe

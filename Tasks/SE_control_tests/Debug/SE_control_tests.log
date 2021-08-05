@@ -1,0 +1,10 @@
+﻿  Source.cpp
+C:\Github\Introduction-in-programming\MatrixTasks\SE_control_tests\Source.cpp(61,11): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\Github\Introduction-in-programming\MatrixTasks\SE_control_tests\Source.cpp(62,11): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\Github\Introduction-in-programming\MatrixTasks\SE_control_tests\Source.cpp(65,16): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+C:\Github\Introduction-in-programming\MatrixTasks\SE_control_tests\Source.cpp(68,16): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+C:\Github\Introduction-in-programming\MatrixTasks\SE_control_tests\Source.cpp(74,11): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\Github\Introduction-in-programming\MatrixTasks\SE_control_tests\Source.cpp(75,11): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\Github\Introduction-in-programming\MatrixTasks\SE_control_tests\Source.cpp(78,16): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+C:\Github\Introduction-in-programming\MatrixTasks\SE_control_tests\Source.cpp(81,16): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+  SE_control_tests.vcxproj -> C:\Github\Introduction-in-programming\MatrixTasks\Debug\SE_control_tests.exe

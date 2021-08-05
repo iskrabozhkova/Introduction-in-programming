@@ -1,0 +1,3 @@
+﻿  Source.cpp
+C:\Github\Introduction-in-programming\MatrixTasks\CS_Tasks\Source.cpp(6,20): warning C4018: '<': signed/unsigned mismatch
+  CS_Tasks.vcxproj -> C:\Github\Introduction-in-programming\MatrixTasks\Debug\CS_Tasks.exe
