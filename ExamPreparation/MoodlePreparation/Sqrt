@@ -13,7 +13,7 @@ double sqrtHelp(double a, double eps, double y) {
 	if (a == 0) {
 		return 0;
 	}
-	double z = (2 * y + a) / (2 * y);
+	double z = (y * y + a) / (2 * y);
 	if (myAbs(z - y) < eps) return z;
 	return sqrtHelp(a, eps, z);
 }
