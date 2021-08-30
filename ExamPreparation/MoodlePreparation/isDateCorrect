@@ -1,0 +1,36 @@
+int findDayCount(int month) {
+	int dayCount = 0;
+	if (month <= 7) {
+		dayCount = 30 + (month % 2);
+	}
+	else {
+		dayCount = 31 + (month % 2);
+	}
+	return dayCount;
+}
+
+bool isDateCorrect(char str[]) {
+	int len = strlen(str);
+	if (len != 5) {
+		return 0;
+	}
+	if (str[2] != '.') {
+		return false;
+	}
+	int day = 0;
+	int month = 0;
+
+	for (int i = 0; i < 2; i++) {
+		day = day * 10 + (str[i] - '0');
+	}
+	for (int i = 3; i < 5; i++) {
+		month = month * 10 + (str[i] - '0');
+	}
+	if (day > 31 || month > 12) {
+		return false;
+	}
+	if (day > findDayCount(month)) {
+		return false;
+	}
+	return 1;
+}
