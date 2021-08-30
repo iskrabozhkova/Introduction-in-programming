@@ -4,7 +4,7 @@ int findDayCount(int month) {
 		dayCount = 30 + (month % 2);
 	}
 	else {
-		dayCount = 31 + (month % 2);
+		dayCount = 31 - (month % 2);
 	}
 	return dayCount;
 }
