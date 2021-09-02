@@ -1,0 +1,42 @@
+int analyse(long N) {
+	int len = lenNum(N);
+	int* arr = new int[len + 1];
+
+	int k = 0;
+	for (int i = 0; i < len; i++) {
+		int lastDigit = N % 10;
+		if (isF(arr, len, lastDigit) == false) {
+			arr[k] = lastDigit;
+			k++;
+		}
+		N /= 10;
+	}
+
+	int result = 0;
+	int smaller = 0;
+	int bigger = 0;
+	int j = 0;
+
+	for (int i = 0; i < k; i++) {
+		int current = arr[i];
+		for (j = 0; j < k; j++) {
+			if (arr[j] > current) {
+				bigger++;
+			}
+			else if (arr[j] < current) {
+				smaller++;
+			}
+			else if (current == arr[j]) {
+				continue;
+			}
+		}
+		if (smaller == bigger) {
+			result = arr[i];
+		}
+		else {
+			bigger = 0;
+			smaller = 0;
+		}
+	}
+	return result;
+}
