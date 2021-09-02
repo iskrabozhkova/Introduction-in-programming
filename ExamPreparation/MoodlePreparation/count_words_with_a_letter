@@ -1,0 +1,29 @@
+char* getWord(char str[]) {
+	int len = strlen(str);
+	if (len <= 0) {
+		return nullptr;
+	}
+	int wordsCount = 0;
+	bool flag = true;
+	int countA = 0;
+
+	for (int i = 0; i < len; i++) {
+		if (str[i] == ' ' || str[i] == '\t') {
+			flag = true;
+		}
+		else if (flag) {
+			if (str[i] == 'a') {
+				countA++;
+			}
+			flag = false;
+			wordsCount++;
+		}
+		
+	}
+
+	char* res = new char[3];
+	res[0] = countA + '0';
+	res[1] = wordsCount + '0';
+	res[2] = '\0';
+	return res;
+}

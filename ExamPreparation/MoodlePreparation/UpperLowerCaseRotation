@@ -1,0 +1,48 @@
+bool isCapital(char c) {
+	if (c >= 'A' && c <= 'Z') {
+		return 1;
+	}
+	else {
+		return 0;
+	}
+}
+bool isLower(char c) {
+	if (c >= 'a' && c <= 'z') {
+		return 1;
+	}
+	else {
+		return 0;
+	}
+}
+
+bool checkstr(char* str) {
+	int len = strlen(str);
+	char first = str[0];
+
+	if (isCapital(str[0])) {
+		for (int i = 1; i < len; i+=2) {
+			if (isLower(str[i]) == false) {
+				return false;
+			}
+		}
+		for (int i = 2; i < len; i += 2) {
+			if (isCapital(str[i]) == false) {
+				return false;
+			}
+		}
+	}
+
+	if (isLower(str[0])) {
+		for (int i = 1; i < len; i += 2) {
+			if (isCapital(str[i]) == false) {
+				return false;
+			}
+		}
+		for (int i = 2; i < len; i += 2) {
+			if (isLower(str[i]) == false) {
+				return false;
+			}
+		}
+	}
+	return true;
+}
