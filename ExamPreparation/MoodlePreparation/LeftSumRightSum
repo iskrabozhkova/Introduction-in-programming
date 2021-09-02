@@ -1,29 +1,23 @@
 #include <iostream>
 
-int AnalyseArray(int arr[], int l) {
-	if (l < 0) {
+int analyseArr(int arr[], int n) {
+	if (n < 2) {
 		return -1;
 	}
-
-	int left = 0;
-	int right = l;
-	int mid = (left + right) / 2;
-	int leftSum = 0, rightSum = 0;
-
-		for (int i = 0; i < mid; i++) {
-			leftSum += arr[i];
+	for (int i = 1; i < n-1; i++) {
+		int leftSum = 0;
+		for (int j = 0; j <= i; j++) {
+			leftSum += arr[j];
 		}
-		for (int i = mid; i < l; i++) {
-			rightSum += arr[i];
+		int rightSum = 0;
+		for (int j = i + 1; j < n; j++) {
+			rightSum += arr[j];
 		}
-	
-	
-	if (leftSum == rightSum) {
-		return 1;
+		if (leftSum == rightSum) {
+			return 1;
+		}
 	}
-	else {
-		return 0;
-	}
+	return 0;
 }
 
 int main() {
