@@ -298,7 +298,7 @@ int** multiplyMatrixes(int** A, int n1, int m1, int** B, int n2, int m2) {
 	}
 	return matrix;
 }
-int* cuadroncacii(int arr[], int n) {
+int* find_cuadroncacii(int arr[], int n) {
 	int sum = 0;
 	int* res = new int[n];
 	int k = 1;
